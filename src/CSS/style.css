@@ -1,0 +1,66 @@
+body{
+    width: 1025px;
+}
+
+.conteudo{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.imagemForca{
+    width: 400px;
+}
+
+.jogo{
+    margin: 59px 53px 70px 38px; 
+    display: flex;
+    justify-content: space-between;
+    width: 934px;
+}
+
+.palavras{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px 0;
+}
+
+.escolhaDePalavra{
+    width: 200px;
+    height: 60px;
+    background: #27AE60;
+    border-radius: 8px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    color: #FFFFFF;
+}
+
+.letrasRenderizadas{
+    width: 700px;
+}
+
+.letra{
+    width: 40px; 
+    height: 40px;
+    margin-right: 12px;
+    margin-bottom: 12px;
+    background: #E1ECF4;
+    border: 1px solid #7AA7C7;
+    border-radius: 3px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;   
+    color: #39739D;
+    }
+
+.desabilitado {
+    background: #9FAAB5;
+    color: #798A9F;
+}
