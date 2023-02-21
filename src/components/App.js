@@ -15,21 +15,46 @@ import forca6 from "../assets/forca6.png"
 function App() {
   const[corDesabilitado, setCorDesabilitado] = React.useState("desabilitado")
   const[desabilitado, setDesabilitado] = React.useState(true)
-  const letra = l.toUpperCase();
+  const[erros, setErros] = React.useState(0)
+  const[imagem, setImagem] =React.useState(forca0)
+  
 
   function start(){
     setDesabilitado(false)  
     setCorDesabilitado("letra")
+    
   }
 
   function verificarLetra (){
-    // if(palavraRenderizada)
-    console.log(l)
+    // if(palavraRenderizada ){
+
+    // }else {
+    //   setErros(erros + 1)
+
+    //   if(image = forca0){
+    //     setImagem(forca1)
+    //   } else if (imagem = forca1){
+    //     setImagem(forca2)
+    //   } else if (imagem = forca2){
+    //     setImagem(forca3)
+    //   } else if (imagem = forca3){
+    //     setImagem(forca4)
+    //   } else if (imagem = forca4){
+    //     setImagem(forca5)
+    //   } else if (imagem = forca5){
+    //     setImagem(forca6)
+    //     fimDeJogo();
+    //   }
+      
+    // }
+    // setCorDesabilitado("desabilitado")
+    // setDesabilitado(true)
+    
   }
 
   return (
     <div class="conteudo">
-      <Jogo imagem={forca0} start={start}/>
+      <Jogo imagem={imagem} start={start}/>
       <Letras cor={corDesabilitado} habilitar={desabilitado} verificarLetra={verificarLetra}/>
     </div>
   );
