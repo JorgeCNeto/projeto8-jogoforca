@@ -22,35 +22,37 @@ function App() {
 
   function start(){
     const randomIndex = Math.floor(Math.random() * palavras.length)
-    const numeroDeLetras = palavras[randomIndex]
-    console.log(numeroDeLetras, " palavra sortida")
-    setPalavraRenderizada(numeroDeLetras.replace(/[a-z\s]/g, "_ "))    
+    const palavraEscolhida = palavras[randomIndex]
+    console.log(palavraEscolhida, " palavra sortida")
+    setPalavraRenderizada(palavraEscolhida.replace(/[a-z\s]/g, "_ "))    
     setDesabilitado(false)  
     setCorDesabilitado("letra")    
   }
 
-  function verificarLetra (){
-    // if(palavraRenderizada ){
-
-    // }else {
-    //   setErros(erros + 1)
-
-    //   if(image = forca0){
-    //     setImagem(forca1)
-    //   } else if (imagem = forca1){
-    //     setImagem(forca2)
-    //   } else if (imagem = forca2){
-    //     setImagem(forca3)
-    //   } else if (imagem = forca3){
-    //     setImagem(forca4)
-    //   } else if (imagem = forca4){
-    //     setImagem(forca5)
-    //   } else if (imagem = forca5){
-    //     setImagem(forca6)
-    //     fimDeJogo();
-    //   }
+  function verificarLetra (l){
+    console.log("funcionou")
+    console.log(l)
+  //   if(palavraEscolhida.includes(" ") ){
+  //     const indexDaLetra = palavraEscolhida.findIndex(" ")
+  //   }else {
+  //     setErros(erros + 1)
+ // __reactProps$e8ijusj9gel.children
+  //     if(image === forca0){
+  //       setImagem(forca1)
+  //     } else if (imagem === forca1){
+  //       setImagem(forca2)
+  //     } else if (imagem === forca2){
+  //       setImagem(forca3)
+  //     } else if (imagem === forca3){
+  //       setImagem(forca4)
+  //     } else if (imagem === forca4){
+  //       setImagem(forca5)
+  //     } else if (imagem === forca5){
+  //       setImagem(forca6)
+  //       fimDeJogo();
+  //     }
       
-    // }
+  //   }
     // setCorDesabilitado("desabilitado")
     // setDesabilitado(true)
     
