@@ -7,8 +7,8 @@ export default function Jogo(props){
                 <img src={props.imagem} />
             </div>
             <div class="palavras">
-                <button onClick={props.start} class="escolhaDePalavra" disabled={props.habilitar}>Escolher Palavra</button>
-                <p>Palavra renderizada</p>
+                <button onClick={props.start} class="escolhaDePalavra">Escolher Palavra</button>
+                <p class="palavraRenderizada">{props.palavraRenderizada}</p>
             </div>
         </div>
     )

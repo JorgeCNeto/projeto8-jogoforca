@@ -16,13 +16,17 @@ function App() {
   const[corDesabilitado, setCorDesabilitado] = React.useState("desabilitado")
   const[desabilitado, setDesabilitado] = React.useState(true)
   const[erros, setErros] = React.useState(0)
-  const[imagem, setImagem] =React.useState(forca0)
+  const[imagem, setImagem] = React.useState(forca0)
+  const[palavraRenderizada, setPalavraRenderizada] = React.useState("")
   
 
   function start(){
+    const randomIndex = Math.floor(Math.random() * palavras.length)
+    const numeroDeLetras = palavras[randomIndex]
+    console.log(numeroDeLetras, " palavra sortida")
+    setPalavraRenderizada(numeroDeLetras.replace(/[a-z\s]/g, "_ "))    
     setDesabilitado(false)  
-    setCorDesabilitado("letra")
-    
+    setCorDesabilitado("letra")    
   }
 
   function verificarLetra (){
@@ -54,7 +58,7 @@ function App() {
 
   return (
     <div class="conteudo">
-      <Jogo imagem={imagem} start={start}/>
+      <Jogo imagem={imagem} start={start} palavraRenderizada={palavraRenderizada}/>
       <Letras cor={corDesabilitado} habilitar={desabilitado} verificarLetra={verificarLetra}/>
     </div>
   );
