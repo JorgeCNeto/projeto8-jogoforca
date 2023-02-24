@@ -1,5 +1,3 @@
-
-
 export default function Jogo(props){
     return (
         <div class="jogo">
