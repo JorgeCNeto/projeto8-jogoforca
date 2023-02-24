@@ -18,12 +18,13 @@ function App() {
   const[imagem, setImagem] = React.useState(forca0)
   const[palavraRenderizada, setPalavraRenderizada] = React.useState("")
   const[letrasTestadas, setLetrasTestadas] = React.useState("")
-  let palavraEscolhida;
+  const[palavraEscolhida, setPalavraEscolhida] = React.useState("")
+  
   
 
   function start(){
     const randomIndex = Math.floor(Math.random() * palavras.length)
-    palavraEscolhida = palavras[randomIndex]
+    setPalavraEscolhida(palavras[randomIndex])
     console.log(palavraEscolhida, " palavra sortida")
     setPalavraRenderizada(palavraEscolhida.replace(/[a-z\s]/g, "_ "))    
     setDesabilitado(false)     
@@ -36,20 +37,20 @@ function App() {
   // }
 
 
-  // console.log(letrasTestadas)
+  console.log(letrasTestadas)
 
   function verificarLetra (l, index){
-    // const verificado = letrasTestadas.includes(l.innerHTML)   
-    // if (!verificado){
-    //   setLetrasTestadas([...letrasTestadas, l.innerHTML])
-    // }
+    const verificado = letrasTestadas.includes(l.innerHTML)   
+    if (!verificado){
+      setLetrasTestadas([...letrasTestadas, l.innerHTML])
+    }
     // console.log(index, "index da letra no map")
     
     console.log(l.innerHTML.toLowerCase())
     if(palavraEscolhida.includes(l.innerHTML.toLowerCase())){
       console.log("entrou na condicional")  
-      // const indexDaLetra = palavraEscolhida.findIndex(l.innerHTML.toLowerCase())
-      // console.log(indexDaLetra, "index da letra na palavra")
+      const indexDaLetra = palavraEscolhida.findIndex(l.innerHTML.toLowerCase())
+      console.log(indexDaLetra, "index da letra na palavra")
 
     }else {
       console.log("pulou a condicional")
@@ -72,7 +73,7 @@ function App() {
       }
       
     }
-    // l.setDesabilitado(true)
+    setDesabilitado(true)
     
   }
 
