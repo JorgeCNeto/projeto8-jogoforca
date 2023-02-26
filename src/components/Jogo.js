@@ -6,8 +6,9 @@ export default function Jogo(props){
             </div>
             <div class="palavras">
                 <button onClick={props.start} class="escolhaDePalavra">Escolher Palavra</button>
-                <p class="palavraRenderizada">{props.palavraRenderizada}</p>
+                <p class={props.corFinal}>{props.palavraRenderizada}</p>
             </div>
         </div>
     )
 }
+

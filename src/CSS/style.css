@@ -41,7 +41,7 @@ body{
     color: #FFFFFF;
 }
 
-.palavraRenderizada{
+.palavraRenderizada, .verde, .vermelho{
     font-family: 'Noto Sans';
     font-style: normal;
     font-weight: 700;
@@ -51,7 +51,19 @@ body{
     justify-content: right;
     align-items: center;
     text-align: center;
+    
+}
+
+.palavraRenderizada{
     color: #000000;
+}
+
+.verde{
+    color:#27AE60;
+}
+
+.vermelho{
+    color: #FF0000;
 }
 
 .letrasRenderizadas{
@@ -80,3 +92,4 @@ body{
     background: #9FAAB5;   
     color: #798A9F;
 }
+
