@@ -32,21 +32,23 @@ function App() {
     setImagem(forca0)
   }
 
-  // function fimDeJogo (){
+  function fimDeJogo (){
+    setDesabilitado(true)  
 
-  // }
+  
+  }
 
 
-  console.log(letrasTestadas)
+  console.log(letrasTestadas, "array com as letras testadas")
 
   function verificarLetra (l, index){
-    const verificado = letrasTestadas.includes(l.innerHTML)   
-    if (!verificado){
-      setLetrasTestadas([...letrasTestadas, l.innerHTML])
-    }
-    // console.log(index, "index da letra no map")
+    // const verificado = letrasTestadas.includes(l.innerHTML)   
+    // if (!verificado){
+    //   setLetrasTestadas([...letrasTestadas, l.innerHTML])
+    // }
+    console.log(index, "index da letra no map")
     
-    console.log(l.innerHTML.toLowerCase())
+    console.log(l.innerHTML.toLowerCase(), "letra pressionada")
     if(palavraEscolhida.includes(l.innerHTML.toLowerCase())){
       console.log("entrou na condicional")  
       const indexDaLetra = palavraEscolhida.findIndex(l.innerHTML.toLowerCase())
@@ -69,11 +71,11 @@ function App() {
         setImagem(forca5)
       } else if (imagem === forca5){
         setImagem(forca6)
-        // fimDeJogo();
+        fimDeJogo();
       }
       
     }
-    setDesabilitado(true)
+    // setDesabilitado(true)
     
   }
 
