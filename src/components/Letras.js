@@ -4,7 +4,7 @@ export default function Letras (props) {
         
     return(
         <div class="letrasRenderizadas">
-            {alfabeto.map((l, index) => <button key={l} onClick={(event) => props.verificarLetra(event.target, index)} class={props.cor} disabled={props.habilitar || props.selecionado}>{l.toUpperCase()}</button>)}            
+            {alfabeto.map((l) => <button key={l} onClick={(event) => props.verificarLetra(event.target)} class={props.cor} disabled={props.habilitar || props.selecionado}>{l.toUpperCase()}</button>)}            
         </div>
     )
 }

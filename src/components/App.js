@@ -14,8 +14,6 @@ import forca6 from "../assets/forca6.png"
 
 function App() {
   const[desabilitado, setDesabilitado] = React.useState(true)
-  const[selecionado, setSelecionado] = React.useState(false)
-  const[corDesabilitado, setCorDesabilitado] = React.useState("desabilitado")
   const[erros, setErros] = React.useState(0)
   const[imagem, setImagem] = React.useState(forca0)
   const[palavraRenderizada, setPalavraRenderizada] = React.useState("")
@@ -27,19 +25,22 @@ function App() {
 
   function start(){
     const randomIndex = Math.floor(Math.random() * palavras.length)
-    setPalavraEscolhida(palavras[randomIndex])  
-    setPalavraRenderizada(palavraEscolhida.replace(/[a-z\s]/g, "_ "))  
-    setCorDesabilitado("letra")  
+    const palavra = palavras[randomIndex]   
+    const palavraArray = palavra.split("")
+    setPalavraEscolhida(palavraArray)
+    let traco = []
+    palavraArray.forEach(() => traco.push("_ "))
+    setPalavraRenderizada(traco)    
     setDesabilitado(false)    
     setErros(0)
     setImagem(forca0)
-
-    console.log(palavraEscolhida, " palavra sortida")
+    setCorFinal("palavraRenderizada")
+    console.log(palavra, " palavra sortida")
   }
 
   function fimDeJogo (){
     setDesabilitado(true)  
-      if(letrasTestadas.length <= palavraEscolhida.lenght + 6){
+      if(letrasTestadas.length < palavraEscolhida.lenght + 6){
         setPalavraRenderizada(palavraEscolhida)
         setCorFinal("verde")
       } else{
@@ -52,36 +53,38 @@ function App() {
 
   // console.log(letrasTestadas, "array com as letras testadas")
 
-  function verificarLetra (l, index){
+  function verificarLetra (l){
     // const verificado = letrasTestadas.includes(l.innerHTML)   
     // if (!verificado){
     //   setLetrasTestadas([...letrasTestadas, l.innerHTML])
     // }
-    // console.log(index, "index da letra no map")
-    console.log(palavraEscolhida, " palavra sortida dentro da verificação")
+    
+    // console.log(palavraEscolhida, " palavra sortida dentro da verificação")
     console.log(l.innerHTML.toLowerCase(), "letra pressionada")
     if(palavraEscolhida.includes(l.innerHTML.toLowerCase())){
-      // console.log("entrou na condicional")  
-      // const indexDaLetra = palavraEscolhida.findIndex(l.innerHTML.toLowerCase())
-      // console.log(indexDaLetra, "index da letra na palavra")
-      
-      const posicoesLetras = []
+       
       for (let i = 0 ; i < palavraEscolhida.length; i++){
+        let novaPalavra = [...palavraRenderizada]      
         if(palavraEscolhida[i] === l.innerHTML.toLowerCase()){          
-          setPalavraRenderizada(palavraRenderizada.replace("_", l.innerHTML.toLowerCase()))
+          palavraRenderizada.splice(i, 1, l.innerHTML.toLowerCase())
+          console.log(palavraRenderizada, "nova palavra")
         }
+        
       }
-
-      if(palavraRenderizada === palavraEscolhida){
+      const novaPalavra = palavraRenderizada
+      setPalavraRenderizada(novaPalavra)
+      console.log(palavraRenderizada, "palavra renderizada")
+     
+      // console.log(posicoesLetras)
+      if(!palavraRenderizada.includes("_")){
         fimDeJogo()
       }
             
 
     }else {
-      console.log("pulou a condicional")
+     
       setErros(erros + 1)
-      console.log(erros, "erros")
- 
+       
       if(imagem === forca0){
         setImagem(forca1)
       } else if (imagem === forca1){
@@ -98,14 +101,14 @@ function App() {
       }
       
     }
-    setSelecionado(true)
+    // setDesabilitado(true)
     
   }
 
   return (
     <div class="conteudo">
       <Jogo imagem={imagem} start={start} corFinal={corFinal} palavraRenderizada={palavraRenderizada}/>
-      <Letras cor={corDesabilitado} habilitar={desabilitado} selecionado={selecionado} verificarLetra={verificarLetra}/>
+      <Letras cor={(desabilitado) ? "desabilitado" : "letra"} habilitar={desabilitado} verificarLetra={verificarLetra}/>
     </div>
   );
 }
