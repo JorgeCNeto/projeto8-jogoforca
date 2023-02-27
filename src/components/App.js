@@ -11,18 +11,15 @@ import forca5 from "../assets/forca5.png"
 import forca6 from "../assets/forca6.png"
 
 
-
 function App() {
-  const[desabilitado, setDesabilitado] = React.useState(true)
+  const[desabilitado, setDesabilitado] = React.useState(true)  
   const[erros, setErros] = React.useState(0)
   const[imagem, setImagem] = React.useState(forca0)
   const[palavraRenderizada, setPalavraRenderizada] = React.useState("")
   const[letrasTestadas, setLetrasTestadas] = React.useState("")
   const[palavraEscolhida, setPalavraEscolhida] = React.useState("")
   const[corFinal, setCorFinal] = React.useState("palavraRenderizada")
-    
-  
-
+ 
   function start(){
     const randomIndex = Math.floor(Math.random() * palavras.length)
     const palavra = palavras[randomIndex]   
@@ -54,29 +51,27 @@ function App() {
   // console.log(letrasTestadas, "array com as letras testadas")
 
   function verificarLetra (l){
-    // const verificado = letrasTestadas.includes(l.innerHTML)   
-    // if (!verificado){
-    //   setLetrasTestadas([...letrasTestadas, l.innerHTML])
-    // }
+    const verificado = letrasTestadas.includes(l.innerHTML)   
+    if (!verificado){
+      setLetrasTestadas([...letrasTestadas, l.innerHTML])
+    }
     
-    // console.log(palavraEscolhida, " palavra sortida dentro da verificação")
     console.log(l.innerHTML.toLowerCase(), "letra pressionada")
     if(palavraEscolhida.includes(l.innerHTML.toLowerCase())){
        
-      for (let i = 0 ; i < palavraEscolhida.length; i++){
-        let novaPalavra = [...palavraRenderizada]      
+      for (let i = 0 ; i < palavraEscolhida.length; i++){             
         if(palavraEscolhida[i] === l.innerHTML.toLowerCase()){          
-          palavraRenderizada.splice(i, 1, l.innerHTML.toLowerCase())
-          console.log(palavraRenderizada, "nova palavra")
-        }
-        
+          palavraRenderizada.splice(i, 1, l.innerHTML.toLowerCase())          
+        }        
       }
-      const novaPalavra = palavraRenderizada
-      setPalavraRenderizada(novaPalavra)
+    
+      setPalavraRenderizada(palavraRenderizada)
       console.log(palavraRenderizada, "palavra renderizada")
+      console.log(palavraRenderizada.toString().replace(/[,]/g, ""), "palavra renderizada em string")
+      console.log(palavraEscolhida, "palavra escolhida")
      
-      // console.log(posicoesLetras)
-      if(!palavraRenderizada.includes("_")){
+      
+      if(palavraRenderizada.toString().replace(/[,]/g, "") === palavraEscolhida){
         fimDeJogo()
       }
             
@@ -101,7 +96,7 @@ function App() {
       }
       
     }
-    // setDesabilitado(true)
+    // setSelecionado(true)
     
   }
 
