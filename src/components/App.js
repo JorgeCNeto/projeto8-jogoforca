@@ -14,6 +14,7 @@ import forca6 from "../assets/forca6.png"
 function App() {
   const[desabilitado, setDesabilitado] = React.useState(true)  
   const[erros, setErros] = React.useState(0)
+  console.log(erros," erros")
   const[imagem, setImagem] = React.useState(forca0)
   const[palavraRenderizada, setPalavraRenderizada] = React.useState("")
   const[letrasTestadas, setLetrasTestadas] = React.useState("")
@@ -35,9 +36,10 @@ function App() {
     console.log(palavra, " palavra sortida")
   }
 
-  function fimDeJogo (){
+  function fimDeJogo (erros){
     setDesabilitado(true)  
-      if(letrasTestadas.lenght <= palavraEscolhida.lenght + 6){
+    
+      if(erros <  6){
         setPalavraRenderizada(palavraEscolhida)
         setCorFinal("verde")
       } else{
@@ -46,7 +48,6 @@ function App() {
       }
   
   }
-
 
   // console.log(letrasTestadas, "array com as letras testadas")
 
@@ -69,19 +70,16 @@ function App() {
       console.log(palavraRenderizada, "palavra renderizada")
       console.log(palavraRenderizada.toString().replace(/[,]/g, ""), "palavra renderizada em string")
       console.log(palavraEscolhida, "palavra escolhida")
-     
-      for(let i = 0; i < palavraRenderizada; i++){
-        if(letrasTestadas.includes(palavraRenderizada[i])){
-          fimDeJogo()
-        }
+    
+      console.log(palavraRenderizada.toString().replace(/[,]/g, "") === palavraEscolhida)
+      if(JSON.stringify(palavraRenderizada) === JSON.stringify(palavraEscolhida)){
+        
+        fimDeJogo(erros)
       }
-      // if(palavraRenderizada.toString().replace(/[,]/g, "") == palavraEscolhida){
-      //   fimDeJogo()
-      // }
             
 
     }else {
-     
+      
       setErros(erros + 1)
        
       if(imagem === forca0){
@@ -96,7 +94,7 @@ function App() {
         setImagem(forca5)
       } else if (imagem === forca5){
         setImagem(forca6)
-        fimDeJogo();
+        fimDeJogo(erros + 1);
       }
       
     }
