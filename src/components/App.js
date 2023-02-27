@@ -37,7 +37,7 @@ function App() {
 
   function fimDeJogo (){
     setDesabilitado(true)  
-      if(letrasTestadas.lenght < palavraEscolhida.lenght + 6){
+      if(letrasTestadas.lenght <= palavraEscolhida.lenght + 6){
         setPalavraRenderizada(palavraEscolhida)
         setCorFinal("verde")
       } else{
@@ -100,8 +100,7 @@ function App() {
       }
       
     }
-    // setSelecionado(true)
-    
+        
   }
 
   return (

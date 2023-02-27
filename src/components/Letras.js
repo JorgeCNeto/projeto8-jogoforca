@@ -28,6 +28,7 @@ function Letra (props){
                     desabilitar();
                 }} 
                 disabled={props.habilitar || selecionado}
+                data-test="letter"
                 >
                  {props.l.toUpperCase()}
             </button>

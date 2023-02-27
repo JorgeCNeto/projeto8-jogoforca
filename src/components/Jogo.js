@@ -2,11 +2,11 @@ export default function Jogo(props){
     return (
         <div class="jogo">
             <div class="imagemForca">
-                <img src={props.imagem} />
+                <img src={props.imagem} data-test="game-image"/>
             </div>
             <div class="palavras">
-                <button onClick={props.start} class="escolhaDePalavra">Escolher Palavra</button>
-                <p class={props.corFinal}>{props.palavraRenderizada}</p>
+                <button onClick={props.start} class="escolhaDePalavra" data-test="choose-word">Escolher Palavra</button>
+                <p class={props.corFinal} data-test="word">{props.palavraRenderizada}</p>
             </div>
         </div>
     )
