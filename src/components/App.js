@@ -37,7 +37,7 @@ function App() {
 
   function fimDeJogo (){
     setDesabilitado(true)  
-      if(letrasTestadas.length < palavraEscolhida.lenght + 6){
+      if(letrasTestadas.lenght < palavraEscolhida.lenght + 6){
         setPalavraRenderizada(palavraEscolhida)
         setCorFinal("verde")
       } else{
@@ -70,10 +70,14 @@ function App() {
       console.log(palavraRenderizada.toString().replace(/[,]/g, ""), "palavra renderizada em string")
       console.log(palavraEscolhida, "palavra escolhida")
      
-      
-      if(palavraRenderizada.toString().replace(/[,]/g, "") === palavraEscolhida){
-        fimDeJogo()
+      for(let i = 0; i < palavraRenderizada; i++){
+        if(letrasTestadas.includes(palavraRenderizada[i])){
+          fimDeJogo()
+        }
       }
+      // if(palavraRenderizada.toString().replace(/[,]/g, "") == palavraEscolhida){
+      //   fimDeJogo()
+      // }
             
 
     }else {
